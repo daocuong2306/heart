@@ -32,7 +32,7 @@ class Particle1 {
     this.color = "#ff417d";
 
     this.ID = setInterval(
-      function() {
+      function () {
         microparticles.push(
           new microParticle(c1.context, {
             x: this.x,
@@ -44,7 +44,7 @@ class Particle1 {
     );
 
     setTimeout(
-      function() {
+      function () {
         clearInterval(this.ID);
       }.bind(this),
       this.life
@@ -134,7 +134,7 @@ class microParticle {
 var random_life = 1000;
 
 setInterval(
-  function() {
+  function () {
     particles.push(new Particle1(canvas));
     random_life = 2000 * Math.random();
   }.bind(this),
@@ -166,10 +166,10 @@ function blur(ctx, canvas, amt) {
 
 function update() {
   clear();
-  particles = particles.filter(function(p) {
+  particles = particles.filter(function (p) {
     return p.move();
   });
-  microparticles = microparticles.filter(function(mp) {
+  microparticles = microparticles.filter(function (mp) {
     return mp.move();
   });
   requestAnimationFrame(update.bind(this));
@@ -188,3 +188,5 @@ function createCanvas(properties) {
 }
 
 update();
+
+
